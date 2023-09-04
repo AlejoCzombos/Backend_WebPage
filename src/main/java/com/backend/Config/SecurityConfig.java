@@ -10,8 +10,6 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -26,9 +24,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         return http
+                .cors(cors -> cors.disable())
                 .csrf(csrf -> csrf.disable()) //Desabilitar la proteccion csrf de Spring. Seguridad para las request POST
                 .authorizeHttpRequests(authRequest ->
-                        authRequest.requestMatchers("/auth/**").permitAll() //Autorizar todos las urls auth para que sean publicas
+                        authRequest.requestMatchers("/auth/**", "/api/comments/**", "/api/posts/**").permitAll() //Autorizar todos las urls auth para que sean publicas
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(sessionManager ->
