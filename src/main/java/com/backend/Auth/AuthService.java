@@ -40,7 +40,7 @@ public class AuthService {
                 .firstname(request.getFirstname())
                 .lastname(request.getLastname())
                 .dni(request.getDni())
-                .role(Role.Estudiante)
+                .role(request.getRole())
                 .build();
         userRepository.save(user);
         return AuthResponse.builder()

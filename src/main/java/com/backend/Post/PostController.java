@@ -52,6 +52,7 @@ public class PostController {
                     post.getContent(),
                     post.getUser().getFirstname(),
                     post.getUser().getLastname(),
+                    post.getUser().getRole(),
                     post.getCreateTime(),
                     commentDTOs
             );

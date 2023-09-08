@@ -4,5 +4,6 @@ public enum Role {
     Admin,
     Docente,
     Padre,
-    Estudiante
+    Estudiante,
+    Invitado
 }

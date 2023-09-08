@@ -25,6 +25,11 @@ public class CommentController {
     private final PostRepository postRepository;
     private final UserRepository userRepository;
 
+    @GetMapping("/posts/users")
+    public List<User> GetUsers(){
+        return userRepository.findAll();
+    }
+
     @PostMapping("/comments/{postId}/{userId}")
     public ResponseEntity<Comment> createComment(
             @PathVariable Integer postId,

@@ -1,4 +1,5 @@
 package com.backend.Auth;
+import com.backend.User.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,4 +15,5 @@ public class RegisterRequest {
     String firstname;
     String lastname;
     String dni;
+    Role role;
 }

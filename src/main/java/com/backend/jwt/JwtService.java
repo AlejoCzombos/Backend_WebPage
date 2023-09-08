@@ -3,9 +3,12 @@ package com.backend.jwt;
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 
+import com.backend.User.User;
+import com.backend.User.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -16,20 +19,24 @@ import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
 @Service
+@RequiredArgsConstructor
 public class JwtService {
 
     private static final String SECRET_KEY = "T5Y789YB89Y789TY27584NBY27V895Y78B39N2YVB653B6VB5Y7843";
+    private final UserRepository userRepository;
 
     public String getToken(UserDetails user) {
         return getToken(new HashMap<>(), user);
     }
 
     private String getToken(HashMap<String, Object> extraClaims, UserDetails user) {
+           Optional<User> userId = userRepository.findByUsername(user.getUsername());
             return Jwts.builder()
                     .setClaims(extraClaims)
                     .setSubject(user.getUsername())
+                    .setId(String.valueOf(userId.get().getId()))
                     .setIssuedAt(new Date(System.currentTimeMillis()))
-                    .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24))
+                    .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24 * 30))
                     .signWith(getKey(), SignatureAlgorithm.HS256)
                     .compact();
     }

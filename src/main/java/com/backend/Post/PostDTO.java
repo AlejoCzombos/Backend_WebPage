@@ -1,5 +1,6 @@
 package com.backend.Post;
 
+import com.backend.User.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ public class PostDTO {
     String content;
     String firstname;
     String lastname;
+    Role role;
     LocalDate createTime;
     List<CommentDTO> comments;
 
