@@ -18,10 +18,13 @@ public class Class {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToMany
-    private Integer classroom_id;
+    @ManyToOne()
+    @JoinColumn(name = "classroom_id")
+    private Classroom classroom;
 
-    private Integer teacher_id;
+    @ManyToOne()
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
 
     private String division;
     private String schedule;
