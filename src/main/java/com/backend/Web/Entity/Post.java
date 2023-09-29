@@ -1,6 +1,6 @@
-package com.backend.Post;
+package com.backend.Web.Entity;
 
-import com.backend.User.User;
+import com.backend.Login.User.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,6 @@ import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -22,15 +21,18 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    String titule;
+    public String titule;
 
     @Column(length = 1000)
+    public
     String content;
     @CreatedDate
+    public
     LocalDate createTime;
 
     @JsonIgnore
     @OneToMany(mappedBy = "post")
+    public
     List<Comment> comments;
 
     @JsonIgnore

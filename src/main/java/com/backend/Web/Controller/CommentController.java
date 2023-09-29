@@ -1,7 +1,11 @@
-package com.backend.Post;
+package com.backend.Web.Controller;
 
-import com.backend.User.User;
-import com.backend.User.UserRepository;
+import com.backend.Login.User.User;
+import com.backend.Login.User.UserRepository;
+import com.backend.Web.Entity.Comment;
+import com.backend.Web.Entity.Post;
+import com.backend.Web.Repository.CommentRepository;
+import com.backend.Web.Repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

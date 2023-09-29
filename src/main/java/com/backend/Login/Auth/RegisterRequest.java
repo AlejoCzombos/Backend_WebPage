@@ -1,5 +1,5 @@
-package com.backend.Auth;
-import com.backend.User.Role;
+package com.backend.Login.Auth;
+import com.backend.Login.User.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

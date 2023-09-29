@@ -1,6 +1,6 @@
-package com.backend.User;
+package com.backend.Login.User;
 
-import com.backend.Post.Post;
+import com.backend.Web.Entity.Post;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,6 +1,6 @@
-package com.backend.Post;
+package com.backend.Web.Entity;
 
-import com.backend.User.User;
+import com.backend.Login.User.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,8 +24,10 @@ public class Comment {
     Integer id;
 
     @Column(length = 1000)
+    public
     String content;
     @CreatedDate
+    public
     LocalDate createTime;
 
     @ManyToOne()

@@ -1,10 +1,10 @@
-package com.backend.Post;
+package com.backend.Web.Repository;
 
+import com.backend.Web.Entity.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Repository

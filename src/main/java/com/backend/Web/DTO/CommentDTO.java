@@ -1,4 +1,4 @@
-package com.backend.Post;
+package com.backend.Web.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

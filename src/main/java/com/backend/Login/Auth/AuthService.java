@@ -1,9 +1,8 @@
-package com.backend.Auth;
+package com.backend.Login.Auth;
 
-import com.backend.User.Role;
-import com.backend.User.User;
-import com.backend.User.UserRepository;
-import com.backend.jwt.JwtService;
+import com.backend.Login.User.User;
+import com.backend.Login.User.UserRepository;
+import com.backend.Login.jwt.JwtService;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

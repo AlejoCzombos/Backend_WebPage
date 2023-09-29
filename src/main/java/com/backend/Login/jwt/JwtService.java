@@ -1,4 +1,4 @@
-package com.backend.jwt;
+package com.backend.Login.jwt;
 
 import java.security.Key;
 import java.util.Date;
@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Optional;
 import java.util.function.Function;
 
-import com.backend.User.User;
-import com.backend.User.UserRepository;
+import com.backend.Login.User.User;
+import com.backend.Login.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;

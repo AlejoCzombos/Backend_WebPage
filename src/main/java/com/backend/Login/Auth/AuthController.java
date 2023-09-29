@@ -1,4 +1,4 @@
-package com.backend.Auth;
+package com.backend.Login.Auth;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

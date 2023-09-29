@@ -1,7 +1,13 @@
-package com.backend.Post;
+package com.backend.Web.Controller;
 
-import com.backend.User.User;
-import com.backend.User.UserRepository;
+import com.backend.Login.User.User;
+import com.backend.Login.User.UserRepository;
+import com.backend.Web.Entity.Comment;
+import com.backend.Web.DTO.CommentDTO;
+import com.backend.Web.DTO.PostDTO;
+import com.backend.Web.Entity.Post;
+import com.backend.Web.Repository.CommentRepository;
+import com.backend.Web.Repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

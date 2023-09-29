@@ -1,6 +1,6 @@
-package com.backend.Post;
+package com.backend.Web.DTO;
 
-import com.backend.User.Role;
+import com.backend.Login.User.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

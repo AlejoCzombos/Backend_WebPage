@@ -1,4 +1,4 @@
-package com.backend.User;
+package com.backend.Login.User;
 
 public enum Role {
     Admin,

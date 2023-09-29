@@ -1,7 +1,7 @@
-package com.backend.Config;
+package com.backend.Login.Config;
 
 
-import com.backend.User.UserRepository;
+import com.backend.Login.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
