@@ -48,6 +48,11 @@ public class AuthService {
                 .build();
         userRepository.save(user);
 
+        if (request.getRole() == Role.Estudiante){
+            Student student = new Student(request.getFirstname(), request.getLastname());
+            studentService.createManually(student, request.username);
+        }
+
         return AuthResponse.builder()
                 .token(jwtService.getToken(user))
                 .build();

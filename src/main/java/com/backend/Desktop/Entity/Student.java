@@ -1,6 +1,5 @@
 package com.backend.Desktop.Entity;
 
-import com.backend.Login.User.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,10 +18,6 @@ public class Student {
     @Id
     private Integer id;
 
-    @MapsId
-    @OneToOne(fetch = FetchType.LAZY)
-    private User user;
-
     private String file_number;
 
     private String firstname;
@@ -40,7 +35,11 @@ public class Student {
     public Student(String firstname, String lastname) {
         Random random = new Random();
 
-        this.file_number = String.valueOf(random.nextInt() * 1000 + 1000);
+        Integer randomNumber = random.nextInt() * 10 + 1000;
+
+        if (randomNumber < 0) randomNumber *= -1;
+
+        this.file_number = String.valueOf(randomNumber);
         this.firstname = firstname;
         this.lastname = lastname;
     }

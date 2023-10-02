@@ -11,11 +11,11 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/student")
+@RequestMapping("/api/students")
 public class StudentController {
 
-    private static StudentService studentService;
-    private static StudentRepository studentRepository;
+    private final StudentService studentService;
+    private final StudentRepository studentRepository;
 
     @GetMapping()
     public List<Student> getAll(){
@@ -25,6 +25,15 @@ public class StudentController {
     @GetMapping("/{studentId}")
     public ResponseEntity<Student> getById(@PathVariable Integer studentId){
         return studentService.getById(studentId);
+    }
+
+    @PostMapping("/{studentId}/{parentId}")
+    public ResponseEntity<Student> addParent(@PathVariable Integer studentId, @PathVariable Integer parentId){
+        return studentService.addParent(studentId, parentId);
+    }
+    @PostMapping("/{studentId}/{classId}")
+    public ResponseEntity<Student> addClass(@PathVariable Integer studentId, @PathVariable Integer classId){
+        return studentService.addClass(studentId, classId);
     }
 
     @PostMapping()
