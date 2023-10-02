@@ -71,8 +71,8 @@ public class StudentService {
         Parent parent = parentOptional.get();
 
         student.getParents().add(parent);
+        parent.getStudents().add(student);
 
-        //TODO: Ver si se guarda automaticamente
         return ResponseEntity.ok(student);
     }
 
@@ -90,8 +90,8 @@ public class StudentService {
         Class aClass = classOptional.get();
 
         student.getClasses().add(aClass);
+        aClass.getStudents().add(student);
 
-        //TODO: Ver si se guarda automaticamente
         return ResponseEntity.ok(student);
     }
 
