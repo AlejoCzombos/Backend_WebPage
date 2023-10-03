@@ -25,7 +25,7 @@ public class SecurityConfig {
                 .cors(cors -> cors.disable())
                 .csrf(csrf -> csrf.disable()) //Desabilitar la proteccion csrf de Spring. Seguridad para las request POST
                 .authorizeHttpRequests(authRequest ->
-                        authRequest.requestMatchers("/auth/**", "/api/**", "/**").permitAll() //Autorizar todos las urls auth para que sean publicas
+                        authRequest.requestMatchers("/auth/**", "/api/**", "/api/students/**", "/api/parents/**").permitAll() //Autorizar todos las urls auth para que sean publicas
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(sessionManager ->
