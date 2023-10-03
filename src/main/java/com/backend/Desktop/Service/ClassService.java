@@ -55,14 +55,12 @@ public class ClassService {
         aClass.setClassroom(classroom);
         aClass.setTeacher(teacher);
 
-        teacher.getClasses().add(aClass);
-        classroom.getClasses().add(aClass);
-
         Class result = classRepository.save(aClass);
+
         return ResponseEntity.ok(result);
     }
 
-    public ResponseEntity<Class> addStudent(Integer classId , String[] studentsIds){
+    public ResponseEntity<Class> linkStudents(Integer classId , String[] studentsIds){
 
         Optional<Class> classOptional = classRepository.findById(classId);
 
@@ -94,7 +92,8 @@ public class ClassService {
             Student student = studentOptional.get();
 
             aClass.getStudents().add(student);
-            student.getClasses().add(aClass);
+
+            classRepository.save(aClass);
         }
 
         return ResponseEntity.ok(aClass);

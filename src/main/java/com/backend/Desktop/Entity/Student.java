@@ -1,5 +1,6 @@
 package com.backend.Desktop.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,12 +24,15 @@ public class Student {
     private String firstname;
     private String lastname;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "student")
     private Note note;
 
-    @ManyToMany(mappedBy = "students")
+    @JsonIgnore
+    @ManyToMany(mappedBy = "childrens")
     private List<Parent> parents;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "students")
     private List<Class> classes;
 

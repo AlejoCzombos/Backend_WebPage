@@ -1,6 +1,8 @@
 package com.backend.Login.Auth;
 
+import com.backend.Desktop.Entity.Parent;
 import com.backend.Desktop.Entity.Student;
+import com.backend.Desktop.Service.ParentService;
 import com.backend.Desktop.Service.StudentService;
 import com.backend.Login.User.Role;
 import com.backend.Login.User.User;
@@ -25,6 +27,7 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
 
     private final StudentService studentService;
+    private final ParentService parentService;
 
     public AuthResponse login(LoginRequest request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
@@ -51,7 +54,11 @@ public class AuthService {
         if (request.getRole() == Role.Estudiante){
             Student student = new Student(request.getFirstname(), request.getLastname());
             studentService.createManually(student, request.username);
+        }else if (request.getRole() == Role.Padre){
+            Parent parent = new Parent(request.getFirstname(), request.getLastname());
+            parentService.createManually(parent, request.username);
         }
+
 
         return AuthResponse.builder()
                 .token(jwtService.getToken(user))

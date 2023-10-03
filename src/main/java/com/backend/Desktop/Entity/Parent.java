@@ -15,7 +15,6 @@ import java.util.List;
 public class Parent {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String firstname;
@@ -27,6 +26,11 @@ public class Parent {
             joinColumns = @JoinColumn(name = "parent_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id")
     )
-    private List<Student> students;
+    private List<Student> childrens;
+
+    public Parent(String firstname, String lastname){
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
 
 }

@@ -33,8 +33,8 @@ public class TeacherController {
     }
 
     @PostMapping("/{teacherId}/{classId}")
-    public ResponseEntity<Teacher> addClass(@PathVariable Integer teacherId, @PathVariable Integer classId){
-        return teacherService.addClass(teacherId, classId);
+    public ResponseEntity<Teacher> linkClass(@PathVariable Integer teacherId, @PathVariable Integer classId){
+        return teacherService.linkClass(teacherId, classId);
     }
 
     @DeleteMapping("/{teacherId}")

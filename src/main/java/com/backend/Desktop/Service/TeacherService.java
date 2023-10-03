@@ -1,7 +1,6 @@
 package com.backend.Desktop.Service;
 
 import com.backend.Desktop.Entity.Class;
-import com.backend.Desktop.Entity.Student;
 import com.backend.Desktop.Entity.Teacher;
 import com.backend.Desktop.Repository.ClassRepository;
 import com.backend.Desktop.Repository.TeacherRepository;
@@ -45,7 +44,7 @@ public class TeacherService {
         return ResponseEntity.ok(result);
     }
 
-    public ResponseEntity<Teacher> addClass(Integer teacherId,Integer classId){
+    public ResponseEntity<Teacher> linkClass(Integer teacherId, Integer classId){
 
         Optional<Class> classOptional = classRepository.findById(classId);
         Optional<Teacher> teacherOptional = teacherRepository.findById(teacherId);

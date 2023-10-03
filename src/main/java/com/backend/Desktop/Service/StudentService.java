@@ -57,7 +57,7 @@ public class StudentService {
         return ResponseEntity.ok(result);
     }
 
-    public ResponseEntity<Student> addParent(Integer studentId, Integer parentId){
+    public ResponseEntity<Student> linkParent(Integer studentId, Integer parentId){
 
         Optional<Student> studentOptional = studentRepository.findById(studentId);
         Optional<Parent> parentOptional = parentRepository.findById(parentId);
@@ -71,12 +71,13 @@ public class StudentService {
         Parent parent = parentOptional.get();
 
         student.getParents().add(parent);
-        parent.getStudents().add(student);
 
-        return ResponseEntity.ok(student);
+        Student result = studentRepository.save(student);
+
+        return ResponseEntity.ok(result);
     }
 
-    public ResponseEntity<Student> addClass(Integer studentId, Integer classId){
+    public ResponseEntity<Student> linkClass(Integer studentId, Integer classId){
 
         Optional<Student> studentOptional = studentRepository.findById(studentId);
         Optional<Class> classOptional =  classRepository.findById(classId);
@@ -90,9 +91,10 @@ public class StudentService {
         Class aClass = classOptional.get();
 
         student.getClasses().add(aClass);
-        aClass.getStudents().add(student);
 
-        return ResponseEntity.ok(student);
+        Student result = studentRepository.save(student);
+
+        return ResponseEntity.ok(result);
     }
 
     public ResponseEntity<Student> deleteById(Integer id){

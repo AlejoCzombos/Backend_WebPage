@@ -27,13 +27,9 @@ public class StudentController {
         return studentService.getById(studentId);
     }
 
-    @PostMapping("/{studentId}/{parentId}")
-    public ResponseEntity<Student> addParent(@PathVariable Integer studentId, @PathVariable Integer parentId){
-        return studentService.addParent(studentId, parentId);
-    }
     @PostMapping("/{studentId}/{classId}")
-    public ResponseEntity<Student> addClass(@PathVariable Integer studentId, @PathVariable Integer classId){
-        return studentService.addClass(studentId, classId);
+    public ResponseEntity<Student> linkClass(@PathVariable Integer studentId, @PathVariable Integer classId){
+        return studentService.linkClass(studentId, classId);
     }
 
     @PostMapping()

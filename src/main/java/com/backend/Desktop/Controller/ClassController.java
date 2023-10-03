@@ -38,7 +38,7 @@ public class ClassController {
 
     @PostMapping("/{classId}/{studentsId}")
     public ResponseEntity<Class> addStudents(@PathVariable Integer classId, @PathVariable String[] studentsIds){
-        return classService.addStudent(classId, studentsIds);
+        return classService.linkStudents(classId, studentsIds);
     }
 
     @DeleteMapping("/{classId}")
