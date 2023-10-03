@@ -2,6 +2,7 @@ C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Web\Repository\Comm
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Login\Auth\AuthResponse.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Repository\ClassRepository.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\Classroom.java
+C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Service\ParentService.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Service\TeacherService.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Login\Auth\RegisterRequest.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\Fee.java
@@ -24,6 +25,7 @@ C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\Note
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\Parent.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Login\Config\SecurityConfig.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Login\Config\CorsConfig.java
+C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Controller\ParentController.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Controller\ClassController.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Login\Auth\LoginRequest.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Web\DTO\CommentDTO.java
