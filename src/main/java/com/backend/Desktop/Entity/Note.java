@@ -20,10 +20,6 @@ public class Note {
     @OneToOne
     private Student student;
 
-    @JoinColumn(name = "teacher_id")
-    @OneToOne
-    private Teacher teacher;
-
     @JoinColumn(name = "class_id")
     @OneToOne
     private Class aClass;

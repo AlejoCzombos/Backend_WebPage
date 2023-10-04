@@ -45,8 +45,10 @@ public class ClassService {
             return ResponseEntity.badRequest().build();
         } else if (teacherOptional.isEmpty()) {
             log.warn("Teacher no exist");
+            return ResponseEntity.notFound().build();
         }else if (classroomOptional.isEmpty()){
             log.warn("Classroom no exist");
+            return ResponseEntity.notFound().build();
         }
 
         Classroom classroom = classroomOptional.get();
