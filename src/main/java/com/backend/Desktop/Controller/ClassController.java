@@ -36,7 +36,7 @@ public class ClassController {
         return classService.completeCreation(aClass, teacherId, classroomId);
     }
 
-    @PostMapping("/{classId}/{studentsId}")
+    @PutMapping("/{classId}/{studentsId}")
     public ResponseEntity<Class> addStudents(@PathVariable Integer classId, @PathVariable String[] studentsIds){
         return classService.linkStudents(classId, studentsIds);
     }

@@ -27,19 +27,18 @@ public class StudentController {
         return studentService.getById(studentId);
     }
 
-    @PostMapping("/{studentId}/{classId}")
-    public ResponseEntity<Student> linkClass(@PathVariable Integer studentId, @PathVariable Integer classId){
-        return studentService.linkClass(studentId, classId);
-    }
-
     @PostMapping()
     public ResponseEntity<Student> create(@RequestBody Student student){
         return studentService.create(student);
+    }
+
+    @PutMapping("/{studentId}/{classId}")
+    public ResponseEntity<Student> linkClass(@PathVariable Integer studentId, @PathVariable Integer classId){
+        return studentService.linkClass(studentId, classId);
     }
 
     @DeleteMapping("{studentId}")
     public ResponseEntity<Student> delete(@PathVariable Integer studentId){
         return studentService.deleteById(studentId);
     }
-
 }

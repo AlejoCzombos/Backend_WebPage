@@ -30,14 +30,14 @@ public class ParentController {
         return parentService.getById(parentId);
     }
 
-    @PostMapping("/{parentId}/{studentId}")
-    public ResponseEntity<Parent> linkChildren(@PathVariable Integer parentId, @PathVariable Integer studentId){
-        return parentService.linkChildren( parentId, studentId);
-    }
-
     @PostMapping()
     public ResponseEntity<Parent> create(@RequestBody Parent parent){
         return parentService.create(parent);
+    }
+
+    @PutMapping("/{parentId}/{studentId}")
+    public ResponseEntity<Parent> linkChildren(@PathVariable Integer parentId, @PathVariable Integer studentId){
+        return parentService.linkChildren( parentId, studentId);
     }
 
     @DeleteMapping("{parentId}")

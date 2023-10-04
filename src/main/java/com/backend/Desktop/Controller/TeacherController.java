@@ -22,24 +22,24 @@ public class TeacherController {
         return teacherRepository.findAll();
     }
 
-    @PostMapping
-    public ResponseEntity<Teacher> create(@RequestBody Teacher teacher){
-        return teacherService.create(teacher);
-    }
-
     @GetMapping("/{teacherId}")
     public ResponseEntity<Teacher> getById(@PathVariable Integer teacherId){
         return getById(teacherId);
     }
 
-    @PostMapping("/{teacherId}/{classId}")
+    @PostMapping
+    public ResponseEntity<Teacher> create(@RequestBody Teacher teacher){
+        return teacherService.create(teacher);
+    }
+
+    @PutMapping("/{teacherId}/{classId}")
     public ResponseEntity<Teacher> linkClass(@PathVariable Integer teacherId, @PathVariable Integer classId){
         return teacherService.linkClass(teacherId, classId);
     }
 
     @DeleteMapping("/{teacherId}")
     public ResponseEntity<Teacher> deleteWithId(@PathVariable Integer teacherId){
-        return teacherService.getById(teacherId);
+        return teacherService.deleteWithId(teacherId);
     }
 
 }
