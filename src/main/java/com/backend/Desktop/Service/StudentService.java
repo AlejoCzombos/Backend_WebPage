@@ -1,9 +1,11 @@
 package com.backend.Desktop.Service;
 
 import com.backend.Desktop.Entity.Class;
+import com.backend.Desktop.Entity.Division;
 import com.backend.Desktop.Entity.Parent;
 import com.backend.Desktop.Entity.Student;
 import com.backend.Desktop.Repository.ClassRepository;
+import com.backend.Desktop.Repository.DivisionRepository;
 import com.backend.Desktop.Repository.ParentRepository;
 import com.backend.Desktop.Repository.StudentRepository;
 import com.backend.Login.User.User;
@@ -23,6 +25,7 @@ public class StudentService {
     private final Logger log = LoggerFactory.getLogger(StudentService.class);
     private final UserRepository userRepository;
 
+    private final DivisionRepository divisionRepository;
     private final StudentRepository studentRepository;
     private final ParentRepository parentRepository;
     private final ClassRepository classRepository;
@@ -77,20 +80,20 @@ public class StudentService {
         return ResponseEntity.ok(result);
     }
 
-    public ResponseEntity<Student> linkClass(Integer studentId, Integer classId){
+    public ResponseEntity<Student> linkDivision(Integer studentId, Integer divisionId){
 
         Optional<Student> studentOptional = studentRepository.findById(studentId);
-        Optional<Class> classOptional =  classRepository.findById(classId);
+        Optional<Division> divisionOptional =  divisionRepository.findById(divisionId);
 
-        if (studentOptional.isEmpty() || classOptional.isEmpty()){
-            log.warn("Student or Class is not found");
+        if (studentOptional.isEmpty() || divisionOptional.isEmpty()){
+            log.warn("Student or Division is not found");
             return ResponseEntity.notFound().build();
         }
 
         Student student = studentOptional.get();
-        Class aClass = classOptional.get();
+        Division division = divisionOptional.get();
 
-        student.getClasses().add(aClass);
+        student.setDivision(division);
 
         Student result = studentRepository.save(student);
 

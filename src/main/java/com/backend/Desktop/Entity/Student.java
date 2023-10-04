@@ -25,16 +25,13 @@ public class Student {
     private String lastname;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "student")
-    private Note note;
-
-    @JsonIgnore
     @ManyToMany(mappedBy = "childrens")
     private List<Parent> parents;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "students")
-    private List<Class> classes;
+    @ManyToOne
+    @JoinColumn(name = "division")
+    private Division division;
 
     public Student(String firstname, String lastname) {
         Random random = new Random();

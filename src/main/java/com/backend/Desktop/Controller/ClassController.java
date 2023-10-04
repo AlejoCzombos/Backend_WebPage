@@ -27,18 +27,21 @@ public class ClassController {
         return classService.basicCreation(aClass);
     }
 
-    @PostMapping("/{teacherId}/{classroomId}")
+    @PostMapping("/{teacherId}/{classroomId}/{divisionId}")
     public ResponseEntity<Class> completeCreation(
             @RequestBody Class aClass,
             @PathVariable Integer teacherId,
-            @PathVariable Integer classroomId
+            @PathVariable Integer classroomId,
+            @PathVariable Integer divisionId
     ){
-        return classService.completeCreation(aClass, teacherId, classroomId);
+        return classService.completeCreation(aClass, teacherId, classroomId, divisionId);
     }
 
     @PutMapping("/{classId}/{studentsId}")
     public ResponseEntity<Class> addStudents(@PathVariable Integer classId, @PathVariable String[] studentsIds){
-        return classService.linkStudents(classId, studentsIds);
+        //TODO: Modificaciones correspondientes
+        //return classService.linkStudents(classId, studentsIds);
+        return null;
     }
 
     @DeleteMapping("/{classId}")

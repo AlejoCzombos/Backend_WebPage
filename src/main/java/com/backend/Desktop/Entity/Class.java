@@ -26,14 +26,9 @@ public class Class {
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
 
-    private String division;
-    private String schedule;
+    @ManyToOne()
+    @JoinColumn(name = "division_id")
+    private Division division;
 
-    @ManyToMany
-    @JoinTable(
-            name = "class_student",
-            joinColumns = @JoinColumn(name = "class_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id")
-    )
-    List<Student> students;
+    private String schedule;
 }

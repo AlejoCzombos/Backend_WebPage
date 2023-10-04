@@ -32,9 +32,9 @@ public class StudentController {
         return studentService.create(student);
     }
 
-    @PutMapping("/{studentId}/{classId}")
-    public ResponseEntity<Student> linkClass(@PathVariable Integer studentId, @PathVariable Integer classId){
-        return studentService.linkClass(studentId, classId);
+    @PutMapping("/{studentId}/{divisionId}")
+    public ResponseEntity<Student> linkDivision(@PathVariable Integer studentId, @PathVariable Integer divisionId){
+        return studentService.linkDivision(studentId, divisionId);
     }
 
     @DeleteMapping("{studentId}")
