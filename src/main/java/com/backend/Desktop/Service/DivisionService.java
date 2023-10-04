@@ -1,25 +1,61 @@
 package com.backend.Desktop.Service;
 
 import com.backend.Desktop.Entity.Class;
+import com.backend.Desktop.Entity.Division;
 import com.backend.Desktop.Entity.Student;
+import com.backend.Desktop.Repository.ClassRepository;
+import com.backend.Desktop.Repository.DivisionRepository;
+import com.backend.Desktop.Repository.StudentRepository;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.Optional;
 
+@RequiredArgsConstructor
+@Service
 public class DivisionService {
 
-    /*
-    public ResponseEntity<Class> linkStudents(Integer classId , String[] studentsIds){
+    private final Logger log = LoggerFactory.getLogger(StudentService.class);
 
-        Optional<Class> classOptional = classRepository.findById(classId);
+    private final DivisionRepository divisionRepository;
+    private final ClassRepository classRepository;
+    private final StudentRepository studentRepository;
 
-        if (classOptional.isEmpty()){
-            log.warn("Trying to add students a non exist Class");
+    public ResponseEntity<Division> getById(Integer divisionId){
+        Optional<Division> divisionOptional = divisionRepository.findById(divisionId);
+
+        if (divisionOptional.isEmpty()){
+            log.warn("Division no exist");
             return ResponseEntity.notFound().build();
         }
 
-        Class aClass = classOptional.get();
+        return ResponseEntity.ok(divisionOptional.get());
+    }
+    public ResponseEntity<Division> create(Division division){
+
+        if (division.getId() != null){
+            log.warn("trying to create a Division with id");
+            return ResponseEntity.badRequest().build();
+        }
+
+        Division result = divisionRepository.save(division);
+        return ResponseEntity.ok(result);
+    }
+
+    public ResponseEntity<Division> linkStudents(Integer divisionId , String[] studentsIds){
+
+        Optional<Division> divisionOptional = divisionRepository.findById(divisionId);
+
+        if (divisionOptional.isEmpty()){
+            log.warn("Trying to link students a non exist Division");
+            return ResponseEntity.notFound().build();
+        }
+
+        Division division = divisionOptional.get();
 
         Integer[] studentsIdsInteger = Arrays.stream(studentsIds)
                 .map(Integer::parseInt)
@@ -30,7 +66,7 @@ public class DivisionService {
             Optional<Student> studentOptional = studentRepository.findById(studentId);
 
             if (studentOptional.isEmpty()){
-                log.warn("Trying to add a non exist Student");
+                log.warn("Trying to link a non exist Student");
                 return ResponseEntity.notFound().build();
             }
         }
@@ -41,13 +77,26 @@ public class DivisionService {
 
             Student student = studentOptional.get();
 
-            aClass.getStudents().add(student);
+            division.getStudents().add(student);
 
-            classRepository.save(aClass);
+            divisionRepository.save(division);
         }
 
-        return ResponseEntity.ok(aClass);
+        return ResponseEntity.ok(division);
     }
-    */
+
+
+    public ResponseEntity<Division> deleteWithId(Integer divisionId){
+        Optional<Division> divisionOptional = divisionRepository.findById(divisionId);
+
+        if (divisionOptional.isEmpty()){
+            log.warn("Division no exist");
+            return ResponseEntity.notFound().build();
+        }
+
+        divisionRepository.deleteById(divisionId);
+
+        return ResponseEntity.ok().build();
+    }
 
 }

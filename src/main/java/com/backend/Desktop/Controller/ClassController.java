@@ -37,13 +37,6 @@ public class ClassController {
         return classService.completeCreation(aClass, teacherId, classroomId, divisionId);
     }
 
-    @PutMapping("/{classId}/{studentsId}")
-    public ResponseEntity<Class> addStudents(@PathVariable Integer classId, @PathVariable String[] studentsIds){
-        //TODO: Modificaciones correspondientes
-        //return classService.linkStudents(classId, studentsIds);
-        return null;
-    }
-
     @DeleteMapping("/{classId}")
     public ResponseEntity<Class> deleteWithId(@PathVariable Integer classId){
         return classService.deleteWithId(classId);

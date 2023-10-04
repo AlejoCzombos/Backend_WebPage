@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.Optional;
 
 @Service
@@ -26,7 +25,7 @@ public class ClassService {
     public ResponseEntity<Class> basicCreation(Class aClass){
 
         if (aClass.getId() != null){
-            log.warn("trying to create a student with id");
+            log.warn("trying to create a Class with id");
             return ResponseEntity.badRequest().build();
         }
 

@@ -28,7 +28,6 @@ public class StudentService {
     private final DivisionRepository divisionRepository;
     private final StudentRepository studentRepository;
     private final ParentRepository parentRepository;
-    private final ClassRepository classRepository;
 
     public ResponseEntity<Student> getById(Integer id){
 
