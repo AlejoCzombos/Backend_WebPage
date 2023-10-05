@@ -1,6 +1,7 @@
 package com.backend.Desktop.Controller;
 
 import com.backend.Desktop.Entity.Division;
+import com.backend.Desktop.Entity.Student;
 import com.backend.Desktop.Repository.DivisionRepository;
 import com.backend.Desktop.Service.DivisionService;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,11 @@ public class DivisionController {
     @GetMapping
     public List<Division> getAll(){
         return divisionRepository.findAll();
+    }
+
+    @GetMapping("/{divisionId}/students")
+    public ResponseEntity<List<Student>> getStudentsByDivision(@PathVariable Integer divisionId){
+        return divisionService.getstudentsByDivision(divisionId);
     }
 
     @GetMapping("/{divisionId}")

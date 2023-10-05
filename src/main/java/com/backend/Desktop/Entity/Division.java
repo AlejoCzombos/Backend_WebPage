@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -23,9 +24,9 @@ public class Division {
 
     @JsonIgnore
     @OneToMany(mappedBy = "division")
-    private Set<Class> classes;
+    private List<Class> classes;
 
     @JsonIgnore
     @OneToMany(mappedBy = "division")
-    private Set<Student> students;
+    private List<Student> students;
 }

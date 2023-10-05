@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,7 +20,7 @@ public class ClassController {
     private final ClassRepository classRepository;
 
     @GetMapping("/{classId}/students")
-    ResponseEntity<Set<Student>> getStudentsByClass(@PathVariable Integer classId){
+    ResponseEntity<List<Student>> getStudentsByClass(@PathVariable Integer classId){
         return classService.getStudentsByClass(classId);
     }
 

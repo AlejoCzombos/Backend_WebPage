@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -25,7 +26,7 @@ public class ClassService {
     private final TeacherRepository teacherRepository;
     private final ScheduleRespository scheduleRespository;
 
-    public ResponseEntity<Set<Student>> getStudentsByClass(Integer classId){
+    public ResponseEntity<List<Student>> getStudentsByClass(Integer classId){
 
         Optional<Class> classOptional = classRepository.findById(classId);
 

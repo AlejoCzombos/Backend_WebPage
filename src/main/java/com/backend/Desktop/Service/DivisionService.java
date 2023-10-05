@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -34,6 +35,19 @@ public class DivisionService {
         }
 
         return ResponseEntity.ok(divisionOptional.get());
+    }
+
+    public ResponseEntity<List<Student>> getstudentsByDivision(Integer divisionId){
+        Optional<Division> divisionOptional = divisionRepository.findById(divisionId);
+
+        if (divisionOptional.isEmpty()){
+            log.warn("Division no exist");
+            return ResponseEntity.notFound().build();
+        }
+
+        Division division = divisionOptional.get();
+
+        return ResponseEntity.ok(division.getStudents());
     }
     public ResponseEntity<Division> create(Division division){
 
