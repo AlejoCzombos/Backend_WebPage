@@ -3,7 +3,6 @@ package com.backend.Desktop.Controller;
 import com.backend.Desktop.Entity.Classroom;
 import com.backend.Desktop.Repository.ClassroomRepository;
 import com.backend.Desktop.Service.ClassroomService;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

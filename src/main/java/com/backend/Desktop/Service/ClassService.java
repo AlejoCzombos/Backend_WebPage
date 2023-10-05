@@ -108,7 +108,6 @@ public class ClassService {
             return ResponseEntity.badRequest().build();
         }
 
-        schedule.setId(classId);
         schedule.setAClass(classOptional.get());
 
         Schedule result = scheduleRespository.save(schedule);

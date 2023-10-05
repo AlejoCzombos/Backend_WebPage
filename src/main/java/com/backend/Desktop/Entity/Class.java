@@ -18,6 +18,8 @@ public class Class {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    private String class_name;
+
     @ManyToOne()
     @JoinColumn(name = "classroom_id")
     private Classroom classroom;

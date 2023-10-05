@@ -2,7 +2,6 @@ package com.backend.Desktop.Service;
 
 import com.backend.Desktop.Entity.Class;
 import com.backend.Desktop.Entity.Classroom;
-import com.backend.Desktop.Entity.Parent;
 import com.backend.Desktop.Repository.ClassRepository;
 import com.backend.Desktop.Repository.ClassroomRepository;
 import lombok.RequiredArgsConstructor;

@@ -1,5 +1,6 @@
 package com.backend.Desktop.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class Classroom {
     private String room_type;
     private Integer capacity;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "classroom")
     private List<Class> classes;
 }

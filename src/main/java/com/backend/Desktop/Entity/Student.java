@@ -28,6 +28,7 @@ public class Student {
     @ManyToMany(mappedBy = "childrens")
     private List<Parent> parents;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "student")
     private List<Note> notes;
 

@@ -18,12 +18,12 @@ public class NoteController {
     private final NoteService noteService;
 
     @GetMapping
-    public List<Note> getAll(){
+    public List<Note> getAll() {
         return noteRespository.findAll();
     }
 
     @PostMapping
-    public ResponseEntity<Note> basicCreation(@RequestBody Note note){
+    public ResponseEntity<Note> basicCreation(@RequestBody Note note) {
         return noteService.basicCreation(note);
     }
 
@@ -32,8 +32,13 @@ public class NoteController {
             @RequestBody Note note,
             @PathVariable Integer classId,
             @PathVariable Integer studentId
-    ){
+    ) {
         return noteService.completeCreation(note, classId, studentId);
+    }
+
+    @GetMapping("/student/{studentId}")
+    public List<Note> notesByStudentId(@PathVariable Integer studentId){
+        return noteRespository.findAllByStudentId(studentId);
     }
 
     @PutMapping("/{noteId}/{classId}/{studentId}")

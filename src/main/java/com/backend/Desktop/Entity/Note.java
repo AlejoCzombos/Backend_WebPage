@@ -1,5 +1,6 @@
 package com.backend.Desktop.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +21,8 @@ public class Note {
     @JoinColumn(name = "student_id")
     private Student student;
 
-    @OneToOne
+    @JsonIgnore
+    @ManyToOne
     @JoinColumn(name = "class_id")
     private Class aClass;
 
