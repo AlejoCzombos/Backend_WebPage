@@ -30,5 +30,6 @@ public class Class {
     @JoinColumn(name = "division_id")
     private Division division;
 
-    private String schedule;
+    @OneToMany(mappedBy = "aClass")
+    private List<Schedule> schedules;
 }

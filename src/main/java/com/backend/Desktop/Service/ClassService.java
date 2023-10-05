@@ -8,8 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -21,6 +23,33 @@ public class ClassService {
     private final ClassRepository classRepository;
     private final ClassroomRepository classroomRepository;
     private final TeacherRepository teacherRepository;
+    private final ScheduleRespository scheduleRespository;
+
+    public ResponseEntity<Set<Student>> getStudentsByClass(Integer classId){
+
+        Optional<Class> classOptional = classRepository.findById(classId);
+
+        if (classOptional.isEmpty()){
+            log.warn("Trying to delete a non exist class");
+            return ResponseEntity.notFound().build();
+        }
+
+        Class aClass = classOptional.get();
+
+        if (aClass.getDivision() == null) {
+            log.warn("The class does not have a division");
+            return ResponseEntity.badRequest().build();
+        }
+
+        Division division = aClass.getDivision();
+
+        if (division.getStudents() == null) {
+            log.warn("The division does not have a students");
+            return ResponseEntity.badRequest().build();
+        }
+
+        return ResponseEntity.ok(division.getStudents());
+    }
 
     public ResponseEntity<Class> basicCreation(Class aClass){
 
@@ -32,6 +61,7 @@ public class ClassService {
         Class result = classRepository.save(aClass);
         return ResponseEntity.ok(result);
     }
+
     public ResponseEntity<Class> completeCreation(Class aClass, Integer teacherId, Integer classRoomId, Integer divisionId){
 
         Optional<Classroom> classroomOptional = classroomRepository.findById(classRoomId);
@@ -62,6 +92,26 @@ public class ClassService {
 
         Class result = classRepository.save(aClass);
 
+        return ResponseEntity.ok(result);
+    }
+
+    public ResponseEntity<Schedule> createSchedule(Integer classId, Schedule schedule){
+
+        Optional<Class> classOptional = classRepository.findById(classId);
+
+        if (schedule.getAClass() != null){
+            log.warn("trying to create a Schedule with id");
+            return ResponseEntity.badRequest().build();
+
+        } else if (classOptional.isEmpty()) {
+            log.warn("Class non exist");
+            return ResponseEntity.badRequest().build();
+        }
+
+        schedule.setId(classId);
+        schedule.setAClass(classOptional.get());
+
+        Schedule result = scheduleRespository.save(schedule);
         return ResponseEntity.ok(result);
     }
 

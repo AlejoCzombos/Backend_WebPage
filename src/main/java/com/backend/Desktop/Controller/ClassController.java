@@ -1,6 +1,8 @@
 package com.backend.Desktop.Controller;
 
 import com.backend.Desktop.Entity.Class;
+import com.backend.Desktop.Entity.Schedule;
+import com.backend.Desktop.Entity.Student;
 import com.backend.Desktop.Repository.ClassRepository;
 import com.backend.Desktop.Service.ClassService;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,9 +20,19 @@ public class ClassController {
     private final ClassService classService;
     private final ClassRepository classRepository;
 
+    @GetMapping("/{classId}/students")
+    ResponseEntity<Set<Student>> getStudentsByClass(@PathVariable Integer classId){
+        return classService.getStudentsByClass(classId);
+    }
+
     @GetMapping
     public List<Class> getAll(){
         return classRepository.findAll();
+    }
+
+    @PostMapping("/schedule/{classId}")
+    public ResponseEntity<Schedule> createSchedule(@PathVariable Integer classId, @RequestBody Schedule schedule){
+        return classService.createSchedule(classId, schedule);
     }
 
     @PostMapping

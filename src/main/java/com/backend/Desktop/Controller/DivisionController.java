@@ -1,7 +1,5 @@
 package com.backend.Desktop.Controller;
 
-
-import com.backend.Desktop.Entity.Class;
 import com.backend.Desktop.Entity.Division;
 import com.backend.Desktop.Repository.DivisionRepository;
 import com.backend.Desktop.Service.DivisionService;

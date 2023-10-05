@@ -5,25 +5,26 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.DayOfWeek;
+import java.time.LocalTime;
+
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "note")
-public class Note {
+@NoArgsConstructor
+@Table(name = "schedule")
+public class Schedule {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "student_id")
-    private Student student;
-
-    @OneToOne
     @JoinColumn(name = "class_id")
     private Class aClass;
 
-    private Integer numeric_note;
-    private Integer quarter;
+    private LocalTime startingTime;
+    private LocalTime endTime;
+
+    private DayOfWeek day;
+
 }

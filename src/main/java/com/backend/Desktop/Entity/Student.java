@@ -28,6 +28,9 @@ public class Student {
     @ManyToMany(mappedBy = "childrens")
     private List<Parent> parents;
 
+    @OneToMany(mappedBy = "student")
+    private List<Note> notes;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "division")
@@ -36,7 +39,7 @@ public class Student {
     public Student(String firstname, String lastname) {
         Random random = new Random();
 
-        Integer randomNumber = random.nextInt() * 10 + 1000;
+        Integer randomNumber = random.nextInt(5000) + 10000;
 
         if (randomNumber < 0) randomNumber *= -1;
 

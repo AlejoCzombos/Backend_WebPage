@@ -15,7 +15,6 @@ import java.util.List;
 public class Teacher {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @OneToMany(mappedBy = "teacher")
@@ -23,5 +22,9 @@ public class Teacher {
 
     private String firstname;
     private String lastname;
-    private String title;
+
+    public Teacher(String firstname, String lastname){
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
 }

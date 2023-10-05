@@ -2,8 +2,10 @@ package com.backend.Login.Auth;
 
 import com.backend.Desktop.Entity.Parent;
 import com.backend.Desktop.Entity.Student;
+import com.backend.Desktop.Entity.Teacher;
 import com.backend.Desktop.Service.ParentService;
 import com.backend.Desktop.Service.StudentService;
+import com.backend.Desktop.Service.TeacherService;
 import com.backend.Login.User.Role;
 import com.backend.Login.User.User;
 import com.backend.Login.User.UserRepository;
@@ -28,6 +30,7 @@ public class AuthService {
 
     private final StudentService studentService;
     private final ParentService parentService;
+    private final TeacherService teacherService;
 
     public AuthResponse login(LoginRequest request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
@@ -57,6 +60,9 @@ public class AuthService {
         }else if (request.getRole() == Role.Padre){
             Parent parent = new Parent(request.getFirstname(), request.getLastname());
             parentService.createManually(parent, request.username);
+        }else if (request.getRole() == Role.Docente){
+            Teacher teacher = new Teacher(request.getFirstname(), request.getLastname());
+            teacherService.createManually(teacher, request.username);
         }
 
 

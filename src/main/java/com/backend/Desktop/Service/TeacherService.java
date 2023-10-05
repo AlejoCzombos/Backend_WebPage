@@ -1,9 +1,12 @@
 package com.backend.Desktop.Service;
 
 import com.backend.Desktop.Entity.Class;
+import com.backend.Desktop.Entity.Parent;
 import com.backend.Desktop.Entity.Teacher;
 import com.backend.Desktop.Repository.ClassRepository;
 import com.backend.Desktop.Repository.TeacherRepository;
+import com.backend.Login.User.User;
+import com.backend.Login.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +21,7 @@ public class TeacherService {
 
     private final Logger log = LoggerFactory.getLogger(StudentService.class);
 
+    private final UserRepository userRepository;
     private final TeacherRepository teacherRepository;
     private final ClassRepository classRepository;
 
@@ -31,6 +35,13 @@ public class TeacherService {
         }
 
         return ResponseEntity.ok(teacherOptional.get());
+    }
+
+    public void createManually(Teacher teacher, String username){
+        Optional<User> userOptional = userRepository.findByUsername(username);
+
+        teacher.setId(userOptional.get().getId());
+        teacherRepository.save(teacher);
     }
 
     public ResponseEntity<Teacher> create(Teacher teacher){
