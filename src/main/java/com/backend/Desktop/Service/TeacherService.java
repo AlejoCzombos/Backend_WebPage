@@ -1,5 +1,7 @@
 package com.backend.Desktop.Service;
 
+import com.backend.Desktop.DTO.ClassDTO;
+import com.backend.Desktop.DTO.NoteDTO;
 import com.backend.Desktop.Entity.Class;
 import com.backend.Desktop.Entity.Parent;
 import com.backend.Desktop.Entity.Teacher;
@@ -8,18 +10,24 @@ import com.backend.Desktop.Repository.TeacherRepository;
 import com.backend.Login.User.User;
 import com.backend.Login.User.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class TeacherService {
 
     private final Logger log = LoggerFactory.getLogger(StudentService.class);
+    private final ModelMapper modelMapper;
 
     private final UserRepository userRepository;
     private final TeacherRepository teacherRepository;
@@ -35,6 +43,25 @@ public class TeacherService {
         }
 
         return ResponseEntity.ok(teacherOptional.get());
+    }
+
+    public ResponseEntity<List<Class>> listAllStudents(Integer teacherId){
+
+        Optional<Teacher> teacherOptional = teacherRepository.findById(teacherId);
+
+        if (teacherOptional.isEmpty()){
+            log.warn("Teacher no exist");
+            ResponseEntity.notFound().build();
+        }
+
+        Teacher teacher = teacherOptional.get();
+
+        List<Class> classes = teacher.getClasses();
+
+        Collections.sort(classes, Comparator
+                .comparing(Class::getClass_name));
+
+        return ResponseEntity.ok(classes);
     }
 
     public void createManually(Teacher teacher, String username){

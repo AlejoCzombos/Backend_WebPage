@@ -35,6 +35,7 @@ public class NoteController {
 
     @GetMapping("/student/{studentId}")
     public List<NoteDTO> notesByStudentId(@PathVariable Integer studentId){
+
         List<Note> notes = noteRespository.findAllByStudentId(studentId);
 
         List<NoteDTO> noteDTOs = notes.stream()

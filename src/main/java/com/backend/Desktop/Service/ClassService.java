@@ -24,7 +24,6 @@ public class ClassService {
     private final ClassRepository classRepository;
     private final ClassroomRepository classroomRepository;
     private final TeacherRepository teacherRepository;
-    private final ScheduleRespository scheduleRespository;
 
     public ResponseEntity<List<Student>> getStudentsByClass(Integer classId){
 
@@ -93,25 +92,6 @@ public class ClassService {
 
         Class result = classRepository.save(aClass);
 
-        return ResponseEntity.ok(result);
-    }
-
-    public ResponseEntity<Schedule> createSchedule(Integer classId, Schedule schedule){
-
-        Optional<Class> classOptional = classRepository.findById(classId);
-
-        if (schedule.getAClass() != null){
-            log.warn("trying to create a Schedule with id");
-            return ResponseEntity.badRequest().build();
-
-        } else if (classOptional.isEmpty()) {
-            log.warn("Class non exist");
-            return ResponseEntity.badRequest().build();
-        }
-
-        schedule.setAClass(classOptional.get());
-
-        Schedule result = scheduleRespository.save(schedule);
         return ResponseEntity.ok(result);
     }
 

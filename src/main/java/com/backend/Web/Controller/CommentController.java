@@ -1,5 +1,6 @@
 package com.backend.Web.Controller;
 
+import com.backend.Login.User.Role;
 import com.backend.Login.User.User;
 import com.backend.Login.User.UserRepository;
 import com.backend.Web.Entity.Comment;
@@ -27,6 +28,19 @@ public class CommentController {
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;
     private final UserRepository userRepository;
+
+    @GetMapping("/role/{userId}")
+    public ResponseEntity<Role> getRole(@PathVariable Integer userId){
+        Optional<User> userOptional = userRepository.findById(userId);
+
+        if (userOptional.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+
+        User user = userOptional.get();
+
+        return ResponseEntity.ok(user.getRole());
+    }
 
     @GetMapping("/posts/users")
     public List<User> GetUsers(){

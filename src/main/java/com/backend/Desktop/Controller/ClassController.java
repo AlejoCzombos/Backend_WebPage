@@ -29,11 +29,6 @@ public class ClassController {
         return classRepository.findAll();
     }
 
-    @PostMapping("/schedule/{classId}")
-    public ResponseEntity<Schedule> createSchedule(@PathVariable Integer classId, @RequestBody Schedule schedule){
-        return classService.createSchedule(classId, schedule);
-    }
-
     @PostMapping
     public ResponseEntity<Class> basicCreation(@RequestBody Class aClass){
         return classService.basicCreation(aClass);

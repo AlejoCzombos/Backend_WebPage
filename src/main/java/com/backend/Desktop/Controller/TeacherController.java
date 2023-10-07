@@ -1,5 +1,6 @@
 package com.backend.Desktop.Controller;
 
+import com.backend.Desktop.Entity.Class;
 import com.backend.Desktop.Entity.Teacher;
 import com.backend.Desktop.Repository.TeacherRepository;
 import com.backend.Desktop.Service.TeacherService;
@@ -19,12 +20,17 @@ public class TeacherController {
 
     @GetMapping
     public List<Teacher> listAll(){
-        return teacherRepository.findAll();
+        return teacherRepository.findAllByOrderByLastnameAsc();
+    }
+
+    @GetMapping("/students/{teacherId}")
+    public ResponseEntity<List<Class>> listAllStudents(@PathVariable Integer teacherId){
+        return teacherService.listAllStudents(teacherId);
     }
 
     @GetMapping("/{teacherId}")
     public ResponseEntity<Teacher> getById(@PathVariable Integer teacherId){
-        return getById(teacherId);
+        return teacherService.getById(teacherId);
     }
 
     @PostMapping
