@@ -23,9 +23,9 @@ public class TeacherController {
         return teacherRepository.findAllByOrderByLastnameAsc();
     }
 
-    @GetMapping("/students/{teacherId}")
-    public ResponseEntity<List<Class>> listAllStudents(@PathVariable Integer teacherId){
-        return teacherService.listAllStudents(teacherId);
+    @GetMapping("/classes/{teacherId}")
+    public ResponseEntity<List<Class>> listAllClasses(@PathVariable Integer teacherId){
+        return teacherService.listAllClasses(teacherId);
     }
 
     @GetMapping("/{teacherId}")

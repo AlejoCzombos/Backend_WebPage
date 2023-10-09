@@ -1,9 +1,7 @@
 package com.backend.Desktop.Service;
 
-import com.backend.Desktop.DTO.ClassDTO;
-import com.backend.Desktop.DTO.NoteDTO;
 import com.backend.Desktop.Entity.Class;
-import com.backend.Desktop.Entity.Parent;
+import com.backend.Desktop.Entity.Student;
 import com.backend.Desktop.Entity.Teacher;
 import com.backend.Desktop.Repository.ClassRepository;
 import com.backend.Desktop.Repository.TeacherRepository;
@@ -20,7 +18,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -45,7 +42,7 @@ public class TeacherService {
         return ResponseEntity.ok(teacherOptional.get());
     }
 
-    public ResponseEntity<List<Class>> listAllStudents(Integer teacherId){
+    public ResponseEntity<List<Class>> listAllClasses(Integer teacherId){
 
         Optional<Teacher> teacherOptional = teacherRepository.findById(teacherId);
 
