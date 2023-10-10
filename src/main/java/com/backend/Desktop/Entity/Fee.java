@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -17,7 +19,14 @@ public class Fee {
     private Integer id;
 
     @JoinColumn(name = "student_id")
-    @OneToOne
+    @ManyToOne
     private Student student;
+
+    @JoinColumn(name = "parent_id")
+    @ManyToOne
+    private Parent parent;
+
+    @OneToMany(mappedBy = "fee")
+    private List<MonthlyFee> monthlyFees;
 
 }

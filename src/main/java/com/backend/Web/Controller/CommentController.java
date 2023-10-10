@@ -3,6 +3,7 @@ package com.backend.Web.Controller;
 import com.backend.Login.User.Role;
 import com.backend.Login.User.User;
 import com.backend.Login.User.UserRepository;
+import com.backend.Web.DTO.UserDTO;
 import com.backend.Web.Entity.Comment;
 import com.backend.Web.Entity.Post;
 import com.backend.Web.Repository.CommentRepository;
@@ -28,6 +29,22 @@ public class CommentController {
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;
     private final UserRepository userRepository;
+
+    @GetMapping("/fullname/{userId}")
+    public ResponseEntity<UserDTO> getName(@PathVariable Integer userId) {
+        Optional<User> userOptional = userRepository.findById(userId);
+
+        if (userOptional.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        User user = userOptional.get();
+
+        UserDTO dto = new UserDTO(user.getFirstname(), user.getLastname());
+
+        return ResponseEntity.ok(dto);
+
+    }
 
     @GetMapping("/role/{userId}")
     public ResponseEntity<Role> getRole(@PathVariable Integer userId){

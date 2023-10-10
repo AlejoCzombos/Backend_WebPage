@@ -1,7 +1,6 @@
 package com.backend.Desktop.Service;
 
 import com.backend.Desktop.Entity.Class;
-import com.backend.Desktop.Entity.Student;
 import com.backend.Desktop.Entity.Teacher;
 import com.backend.Desktop.Repository.ClassRepository;
 import com.backend.Desktop.Repository.TeacherRepository;

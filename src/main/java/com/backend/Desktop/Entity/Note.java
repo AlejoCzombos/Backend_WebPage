@@ -26,6 +26,7 @@ public class Note {
     @JoinColumn(name = "class_id")
     private Class aClass;
 
-    private Integer numeric_note;
-    private Integer quarter;
+    private Integer numeric_note_1 = 0;
+    private Integer numeric_note_2 = 0;
+    private Integer numeric_note_3 = 0;
 }
