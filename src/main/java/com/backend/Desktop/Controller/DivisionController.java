@@ -1,5 +1,7 @@
 package com.backend.Desktop.Controller;
 
+import com.backend.Desktop.DTO.ClassDTO;
+import com.backend.Desktop.Entity.Class;
 import com.backend.Desktop.Entity.Division;
 import com.backend.Desktop.Entity.Student;
 import com.backend.Desktop.Repository.DivisionRepository;
@@ -23,9 +25,14 @@ public class DivisionController {
         return divisionRepository.findAll();
     }
 
-    @GetMapping("/{divisionId}/students")
+    @GetMapping("/students/{divisionId}")
     public ResponseEntity<List<Student>> getStudentsByDivision(@PathVariable Integer divisionId){
         return divisionService.getstudentsByDivision(divisionId);
+    }
+
+    @GetMapping("/classes/{divisionId}")
+    public ResponseEntity<List<ClassDTO>> getClassesById(@PathVariable Integer divisionId){
+        return divisionService.getClassesById(divisionId);
     }
 
     @GetMapping("/{divisionId}")

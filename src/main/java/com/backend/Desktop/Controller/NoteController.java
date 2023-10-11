@@ -47,8 +47,7 @@ public class NoteController {
                 .collect(Collectors.toList());
 
         Collections.sort(noteDTOs, Comparator
-                .comparing(NoteDTO::getClass_name)
-                .thenComparingInt(NoteDTO::getQuarter));
+                .comparing(NoteDTO::getClass_name));
         return noteDTOs;
     }
 

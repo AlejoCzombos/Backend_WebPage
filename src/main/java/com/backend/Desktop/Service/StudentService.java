@@ -1,10 +1,8 @@
 package com.backend.Desktop.Service;
 
-import com.backend.Desktop.Entity.Class;
 import com.backend.Desktop.Entity.Division;
 import com.backend.Desktop.Entity.Parent;
 import com.backend.Desktop.Entity.Student;
-import com.backend.Desktop.Repository.ClassRepository;
 import com.backend.Desktop.Repository.DivisionRepository;
 import com.backend.Desktop.Repository.ParentRepository;
 import com.backend.Desktop.Repository.StudentRepository;

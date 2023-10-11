@@ -31,7 +31,6 @@ public class ParentService {
     private final StudentRepository studentRepository;
     private final ParentRepository parentRepository;
     private final FeeService feeService;
-    private final FeeRepository feeRepository;
 
     public ResponseEntity<Parent> getById(Integer id){
 
