@@ -1,5 +1,6 @@
 package com.backend.Desktop.Controller;
 
+import com.backend.Desktop.DTO.FeeDTO;
 import com.backend.Desktop.Entity.Parent;
 import com.backend.Desktop.Entity.Student;
 import com.backend.Desktop.Repository.ParentRepository;
@@ -28,6 +29,11 @@ public class ParentController {
     @GetMapping("/{parentId}")
     public ResponseEntity<Parent> getById(@PathVariable Integer parentId){
         return parentService.getById(parentId);
+    }
+
+    @GetMapping("/fees/{parentId}")
+    public ResponseEntity<List<FeeDTO>> getFees(@PathVariable Integer parentId){
+        return parentService.getFees(parentId);
     }
 
     @PostMapping()

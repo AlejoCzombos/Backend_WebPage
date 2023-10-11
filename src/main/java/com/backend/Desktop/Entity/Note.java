@@ -29,4 +29,9 @@ public class Note {
     private Integer numeric_note_1 = 0;
     private Integer numeric_note_2 = 0;
     private Integer numeric_note_3 = 0;
+
+    public Note(Student student, Class aClass) {
+        this.student = student;
+        this.aClass = aClass;
+    }
 }

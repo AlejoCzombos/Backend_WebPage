@@ -23,6 +23,11 @@ public class FeeController {
         return feeRepository.findAll();
     }
 
+    @GetMapping("/{feeId}")
+    public ResponseEntity<Fee> getById(@PathVariable Integer feeId){
+        return feeService.getById(feeId);
+    }
+
     @PostMapping("/{parentId}/{studentId}")
     public ResponseEntity<Fee> completeCreation(
             @RequestBody Fee fee,

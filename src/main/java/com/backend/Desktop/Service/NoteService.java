@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -104,6 +106,23 @@ public class NoteService {
 
         noteRespository.deleteById(noteId);
         return ResponseEntity.ok().build();
+    }
+
+    public List<Note> createNotes(Student student){
+
+        Division division = student.getDivision();
+        List<Class> classes = division.getClasses();
+
+        List<Note> notes = new ArrayList<Note>();
+
+        for (Class aClass : classes){
+            Note note = new Note(student, aClass);
+
+            Note result = noteRespository.save(note);
+
+            notes.add(result);
+        }
+        return notes;
     }
 
 }

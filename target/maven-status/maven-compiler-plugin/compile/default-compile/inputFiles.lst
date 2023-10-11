@@ -9,9 +9,12 @@ C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Controller\
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\Class.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Web\Entity\Post.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Controller\StudentController.java
+C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\MonthlyFee.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Login\User\User.java
+C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Repository\MonthlyFeeRepostory.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\Schedule.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\Student.java
+C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Service\FeeService.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Service\NoteService.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Web\Controller\CommentController.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\Note.java
@@ -29,12 +32,14 @@ C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\EducarParaTransform
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Service\ScheduleService.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Web\Repository\CommentRepository.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Repository\ClassRepository.java
+C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Controller\FeeController.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\Classroom.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Repository\StudentRepository.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Repository\TeacherRepository.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\Teacher.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Repository\ScheduleRespository.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Login\User\Role.java
+C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Web\DTO\UserDTO.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Repository\ClassroomRepository.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Login\Config\ApplicationConfig.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Controller\ClassroomController.java
@@ -53,5 +58,6 @@ C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Controller\
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Repository\DivisionRepository.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Web\DTO\PostDTO.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Controller\DivisionController.java
+C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Repository\FeeRepository.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Web\Repository\PostRepository.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Service\ClassService.java

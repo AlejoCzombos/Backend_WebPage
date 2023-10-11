@@ -29,4 +29,8 @@ public class Fee {
     @OneToMany(mappedBy = "fee")
     private List<MonthlyFee> monthlyFees;
 
+    public Fee(Student student, Parent parent) {
+        this.student = student;
+        this.parent = parent;
+    }
 }

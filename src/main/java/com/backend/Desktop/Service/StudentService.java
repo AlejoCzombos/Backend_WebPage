@@ -28,6 +28,7 @@ public class StudentService {
     private final DivisionRepository divisionRepository;
     private final StudentRepository studentRepository;
     private final ParentRepository parentRepository;
+    private final NoteService noteService;
 
     public ResponseEntity<Student> getById(Integer id){
 
@@ -79,12 +80,12 @@ public class StudentService {
         return ResponseEntity.ok(result);
     }
 
-    public ResponseEntity<Student> linkDivision(Integer studentId, Integer divisionId){
+    public ResponseEntity<Student> linkDivision(Integer studentId, Integer divisionId) {
 
         Optional<Student> studentOptional = studentRepository.findById(studentId);
-        Optional<Division> divisionOptional =  divisionRepository.findById(divisionId);
+        Optional<Division> divisionOptional = divisionRepository.findById(divisionId);
 
-        if (studentOptional.isEmpty() || divisionOptional.isEmpty()){
+        if (studentOptional.isEmpty() || divisionOptional.isEmpty()) {
             log.warn("Student or Division is not found");
             return ResponseEntity.notFound().build();
         }
@@ -93,6 +94,7 @@ public class StudentService {
         Division division = divisionOptional.get();
 
         student.setDivision(division);
+        student.setNotes( noteService.createNotes(student) );
 
         Student result = studentRepository.save(student);
 
