@@ -36,29 +36,17 @@ public class NoteService {
         return ResponseEntity.ok(result);
     }
 
-    public ResponseEntity<Note> completeCreation(Note note, Integer classId, Integer studentId){
+    public ResponseEntity<Note> completeCreation(Note note){
 
-        Optional<Class> classOptional = classRepository.findById(classId);
-        Optional<Student> studentOptional = studentRepository.findById(studentId);
-
-        if (note.getId() != null){
-            log.warn("trying to create a note with id");
+        if (note.getId() == null){
+            log.warn("trying to update a non existent note");
             return ResponseEntity.badRequest().build();
-
-        } else if (classOptional.isEmpty()) {
-            log.warn("Class no exist");
-            return ResponseEntity.notFound().build();
-
-        }else if (studentOptional.isEmpty()){
-            log.warn("Student no exist");
-            return ResponseEntity.notFound().build();
         }
 
-        Class aClass = classOptional.get();
-        Student student = studentOptional.get();
-
-        note.setAClass(aClass);
-        note.setStudent(student);
+        if (!noteRespository.existsById(note.getId())){
+            log.warn("trying to update a non existent note");
+            return ResponseEntity.notFound().build();
+        }
 
         Note result = noteRespository.save(note);
 

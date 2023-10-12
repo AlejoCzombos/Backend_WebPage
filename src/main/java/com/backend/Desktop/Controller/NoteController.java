@@ -52,15 +52,9 @@ public class NoteController {
     }
 
     @PostMapping("/{classId}/{studentId}")
-    public ResponseEntity<Note> completeCreation(
-            @RequestBody Note note,
-            @PathVariable Integer classId,
-            @PathVariable Integer studentId
-    ) {
-        return noteService.completeCreation(note, classId, studentId);
+    public ResponseEntity<Note> completeCreation(@RequestBody Note note) {
+        return noteService.completeCreation(note);
     }
-
-
 
     @PutMapping("/{noteId}/{classId}/{studentId}")
     public ResponseEntity<Note> linkStudentAndClass(

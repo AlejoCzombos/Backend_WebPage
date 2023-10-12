@@ -25,8 +25,8 @@ public class Schedule {
     @JoinColumn(name = "class_id")
     private Class aClass;
 
-    private LocalTime startingTime;
-    private LocalTime endTime;
+    private String startingTime;
+    private String endTime;
 
     private DayOfWeek day;
 
