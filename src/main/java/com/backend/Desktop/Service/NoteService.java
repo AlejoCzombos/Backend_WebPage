@@ -36,7 +36,7 @@ public class NoteService {
         return ResponseEntity.ok(result);
     }
 
-    public ResponseEntity<Note> completeCreation(Note note){
+    public ResponseEntity<Note> updateNote(Note note){
 
         if (note.getId() == null){
             log.warn("trying to update a non existent note");
@@ -47,6 +47,11 @@ public class NoteService {
             log.warn("trying to update a non existent note");
             return ResponseEntity.notFound().build();
         }
+
+        Note oldNote = noteRespository.findById(note.getId()).get();
+
+        note.setStudent(oldNote.getStudent());
+        note.setAClass(oldNote.getAClass());
 
         Note result = noteRespository.save(note);
 

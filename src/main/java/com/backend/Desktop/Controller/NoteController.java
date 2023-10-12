@@ -51,9 +51,9 @@ public class NoteController {
         return noteDTOs;
     }
 
-    @PostMapping("/{classId}/{studentId}")
-    public ResponseEntity<Note> completeCreation(@RequestBody Note note) {
-        return noteService.completeCreation(note);
+    @PutMapping
+    public ResponseEntity<Note> updateNote(@RequestBody Note note) {
+        return noteService.updateNote(note);
     }
 
     @PutMapping("/{noteId}/{classId}/{studentId}")
