@@ -8,6 +8,7 @@ C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Repository\
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Controller\ScheduleController.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\Class.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Web\Entity\Post.java
+C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\DTO\StudentDTO.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Controller\StudentController.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\MonthlyFee.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Login\User\User.java
@@ -22,6 +23,7 @@ C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Login\Config\Securi
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Controller\ClassController.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Login\jwt\JwtAuthenticationFilter.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Service\ClassroomService.java
+C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\DTO\MonthlyFeeDTO.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Login\User\UserRepository.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Web\Entity\Comment.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\DTO\NoteDTO.java
@@ -49,6 +51,7 @@ C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Web\Controller\Post
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\Parent.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Login\Config\CorsConfig.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Controller\ParentController.java
+C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Repository\CustomStudentRepository.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Login\Auth\LoginRequest.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Desktop\Entity\Division.java
 C:\Alejo\Programacion\Java\backend\src\main\java\com\backend\Web\DTO\CommentDTO.java

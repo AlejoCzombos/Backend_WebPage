@@ -35,7 +35,6 @@ public class FeeController {
         return feeService.getStudentsFeePaidless();
     }
 
-
     @PostMapping("/{parentId}/{studentId}")
     public ResponseEntity<Fee> completeCreation(
             @RequestBody Fee fee,
