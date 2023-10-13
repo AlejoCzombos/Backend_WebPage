@@ -1,5 +1,6 @@
 package com.backend.Desktop.Controller;
 
+import com.backend.Desktop.Entity.Class;
 import com.backend.Desktop.Entity.Student;
 import com.backend.Desktop.Repository.StudentRepository;
 import com.backend.Desktop.Service.StudentService;
@@ -25,6 +26,11 @@ public class StudentController {
     @GetMapping("/{studentId}")
     public ResponseEntity<Student> getById(@PathVariable Integer studentId){
         return studentService.getById(studentId);
+    }
+
+    @GetMapping("/classes/{studentId}")
+    public ResponseEntity<List<Class>> getClassesByStudent(@PathVariable Integer studentId){
+        return studentService.getClassesByStudent(studentId);
     }
 
     @PostMapping()

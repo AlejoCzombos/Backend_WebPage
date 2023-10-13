@@ -1,7 +1,9 @@
 package com.backend.Desktop.Controller;
 
+import com.backend.Desktop.DTO.StudentDTO;
 import com.backend.Desktop.Entity.Fee;
 import com.backend.Desktop.Entity.Note;
+import com.backend.Desktop.Entity.Student;
 import com.backend.Desktop.Repository.FeeRepository;
 import com.backend.Desktop.Service.FeeService;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +29,12 @@ public class FeeController {
     public ResponseEntity<Fee> getById(@PathVariable Integer feeId){
         return feeService.getById(feeId);
     }
+
+    @GetMapping("/students")
+    public List<StudentDTO> getStudentsFeePaidless(){
+        return feeService.getStudentsFeePaidless();
+    }
+
 
     @PostMapping("/{parentId}/{studentId}")
     public ResponseEntity<Fee> completeCreation(

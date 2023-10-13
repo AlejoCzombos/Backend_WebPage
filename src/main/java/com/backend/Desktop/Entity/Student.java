@@ -33,6 +33,10 @@ public class Student {
     private List<Note> notes;
 
     @JsonIgnore
+    @OneToMany(mappedBy = "student")
+    private List<Fee> fees;
+
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "division")
     private Division division;

@@ -1,5 +1,6 @@
 package com.backend.Desktop.Service;
 
+import com.backend.Desktop.Entity.Class;
 import com.backend.Desktop.Entity.Division;
 import com.backend.Desktop.Entity.Parent;
 import com.backend.Desktop.Entity.Student;
@@ -14,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -38,6 +40,20 @@ public class StudentService {
         }
 
         return ResponseEntity.ok(studentOptional.get());
+    }
+
+    public ResponseEntity<List<Class>> getClassesByStudent(Integer studentId){
+
+        Optional<Student> studentOptional = studentRepository.findById(studentId);
+
+        if (studentOptional.isEmpty()){
+            log.warn("Student is not found");
+            return ResponseEntity.notFound().build();
+        }
+
+        Student student = studentOptional.get();
+
+        return ResponseEntity.ok(student.getDivision().getClasses());
     }
 
     public void createManually(Student student, String username){

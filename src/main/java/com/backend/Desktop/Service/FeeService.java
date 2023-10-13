@@ -1,5 +1,6 @@
 package com.backend.Desktop.Service;
 
+import com.backend.Desktop.DTO.StudentDTO;
 import com.backend.Desktop.Entity.*;
 import com.backend.Desktop.Repository.*;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,7 @@ public class FeeService {
     private final ParentRepository parentRepository;
     private final StudentRepository studentRepository;
     private final MonthlyFeeRepostory monthlyFeeRepostory;
+    private final CustomStudentRepository customStudentRepository;
 
     public ResponseEntity<Fee> getById(Integer feeId){
         Optional<Fee> feeOptional = feeRepository.findById(feeId);
@@ -34,6 +36,10 @@ public class FeeService {
         }
 
         return ResponseEntity.ok(feeOptional.get());
+    }
+
+    public List<StudentDTO> getStudentsFeePaidless(){
+        return customStudentRepository.findStudentsWithUnpaidFees();
     }
 
     public ResponseEntity<Fee> basicCreation(Fee fee){
