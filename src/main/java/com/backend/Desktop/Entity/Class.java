@@ -20,6 +20,11 @@ public class Class {
 
     private String class_name;
 
+    @Enumerated(EnumType.STRING)
+    private Education education;
+
+    private String year;
+
     @ManyToOne()
     @JoinColumn(name = "classroom_id")
     private Classroom classroom;

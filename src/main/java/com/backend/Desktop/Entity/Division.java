@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -21,6 +20,11 @@ public class Division {
     private Integer id;
 
     private String division_name;
+
+    private String year;
+
+    @Enumerated(EnumType.STRING)
+    private Education education;
 
     @JsonIgnore
     @OneToMany(mappedBy = "division")
