@@ -1,5 +1,6 @@
 package com.backend.Desktop.Controller;
 
+import com.backend.Desktop.DTO.StudentUserDTO;
 import com.backend.Desktop.Entity.Class;
 import com.backend.Desktop.Entity.Schedule;
 import com.backend.Desktop.Entity.Student;
@@ -20,7 +21,7 @@ public class ClassController {
     private final ClassRepository classRepository;
 
     @GetMapping("/{classId}/students")
-    ResponseEntity<List<Student>> getStudentsByClass(@PathVariable Integer classId){
+    ResponseEntity<List<StudentUserDTO>> getStudentsByClass(@PathVariable Integer classId){
         return classService.getStudentsByClass(classId);
     }
 
