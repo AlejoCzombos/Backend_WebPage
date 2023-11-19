@@ -2,8 +2,6 @@ package com.backend.Desktop.Controller;
 
 import com.backend.Desktop.DTO.StudentUserDTO;
 import com.backend.Desktop.Entity.Class;
-import com.backend.Desktop.Entity.Schedule;
-import com.backend.Desktop.Entity.Student;
 import com.backend.Desktop.Repository.ClassRepository;
 import com.backend.Desktop.Service.ClassService;
 import lombok.RequiredArgsConstructor;

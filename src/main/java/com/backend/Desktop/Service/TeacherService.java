@@ -93,7 +93,9 @@ public class TeacherService {
         Class aClass = classOptional.get();
 
         teacher.getClasses().add(aClass);
-        aClass.setTeacher(teacher);
+        aClass.getTeachers().add(teacher);
+
+        teacherRepository.save(teacher);
 
         return ResponseEntity.ok(teacher);
     }

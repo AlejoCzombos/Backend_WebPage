@@ -19,6 +19,7 @@ public class Class {
     private Integer id;
 
     private String class_name;
+    private String english_class_name;
 
     @Enumerated(EnumType.STRING)
     private Education education;
@@ -29,9 +30,13 @@ public class Class {
     @JoinColumn(name = "classroom_id")
     private Classroom classroom;
 
-    @ManyToOne()
-    @JoinColumn(name = "teacher_id")
-    private Teacher teacher;
+    @ManyToMany
+    @JoinTable(
+            name = "class_teacher",
+            joinColumns = @JoinColumn(name = "class_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "teacher_id", referencedColumnName = "id")
+    )
+    private List<Teacher> teachers;
 
     @ManyToOne()
     @JoinColumn(name = "division_id")

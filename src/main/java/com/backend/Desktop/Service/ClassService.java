@@ -1,6 +1,5 @@
 package com.backend.Desktop.Service;
 
-import com.backend.Desktop.DTO.ClassDTO;
 import com.backend.Desktop.DTO.StudentUserDTO;
 import com.backend.Desktop.Entity.*;
 import com.backend.Desktop.Entity.Class;
@@ -12,7 +11,6 @@ import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.config.core.userdetails.UserDetailsResourceFactoryBean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -108,7 +106,7 @@ public class ClassService {
         Division division = divisionOptional.get();
 
         aClass.setClassroom(classroom);
-        aClass.setTeacher(teacher);
+        aClass.getTeachers().add(teacher);
         aClass.setDivision(division);
 
         Class result = classRepository.save(aClass);

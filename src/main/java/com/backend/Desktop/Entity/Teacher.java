@@ -19,7 +19,7 @@ public class Teacher {
     private Integer id;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "teacher")
+    @ManyToMany(mappedBy = "teachers")
     private List<Class> classes;
 
     private String firstname;
