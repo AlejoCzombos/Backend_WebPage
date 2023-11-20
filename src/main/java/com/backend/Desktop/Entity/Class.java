@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -36,7 +37,7 @@ public class Class {
             joinColumns = @JoinColumn(name = "class_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "teacher_id", referencedColumnName = "id")
     )
-    private List<Teacher> teachers;
+    private List<Teacher> teachers = new ArrayList<Teacher>();
 
     @ManyToOne()
     @JoinColumn(name = "division_id")
