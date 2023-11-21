@@ -1,6 +1,5 @@
 package com.backend.Desktop.DTO;
 
-import com.backend.Desktop.Entity.MonthlyFee;
 import lombok.Data;
 
 import java.util.List;

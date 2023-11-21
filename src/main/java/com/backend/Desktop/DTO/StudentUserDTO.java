@@ -9,13 +9,15 @@ import java.util.List;
 @NoArgsConstructor
 public class StudentUserDTO {
 
+    private Integer id;
     private String firstname;
     private String lastname;
     private String file_number;
     private String dni;
     private String username;
 
-    public StudentUserDTO(String firstname, String lastname, String file_number, String dni, String username) {
+    public StudentUserDTO(Integer id, String firstname, String lastname, String file_number, String dni, String username) {
+        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.file_number = file_number;
